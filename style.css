@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+}
+
+#contenitore-gioco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Schermate UI con Glassmorphism */
+.schermata {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.nascosto {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #ffcc00;
+    text-shadow: 4px 4px 0 #ff0000, 0 0 30px rgba(255, 204, 0, 0.8);
+    animation: galleggia 3s ease-in-out infinite;
+    text-align: center;
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: #ff3333;
+    text-shadow: 2px 2px 0 #fff;
+}
+
+.contenitore-record {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.testo-punteggio {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.testo-estrema {
+    color: #ff0044;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes galleggia {
+    0% {
+        transform: translateY(0px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-1deg);
+    }
+}
+
+.contenitore-bottoni {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.bottone-figo {
+    padding: 18px 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #ff3300, #ffcc00);
+    border: 3px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255, 85, 0, 0.4);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+}
+
+.bottone-figo:hover {
+    transform: translateY(-5px) scale(0.9);
+    box-shadow: 0 15px 30px rgba(255, 200, 0, 0.6);
+}
+
+.bottone-estrema {
+    background: linear-gradient(90deg, #990000, #ff0044);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+}
+
+.bottone-estrema:hover {
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.8);
+}
+
+.bottone-secondario {
+    background: linear-gradient(90deg, #555, #888);
+    box-shadow: 0 10px 20px rgba(100, 100, 100, 0.4);
+}
+
+.bottone-secondario:hover {
+    box-shadow: 0 15px 30px rgba(150, 150, 150, 0.6);
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 5;
+    text-shadow: 3px 3px 0 #ff0000;
+}
+
+#valore-punteggio-container {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-right: 30px;
+}
+
+#indicatore-modalita {
+    font-size: 1.5rem;
+    color: #ff0044;
+    display: block;
+    margin-top: -5px;
+    text-shadow: none;
+}
+
+#hud-vite {
+    font-size: 2.5rem;
+    color: #ff3333;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
